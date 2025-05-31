@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.pouyoute.qols.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "DamageEnchantmentMixin",
+    "EnchantmentScreenHandlerAccessor",
+    "EnchantmentScreenHandlerMixin",
+    "ExampleMixin",
+    "LuckEnchantmentMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

@@ -71,7 +71,6 @@ public class EnchantmentScreenHandlerMixin implements QolsEnchantSync{
 
                 // Envoi ciblé au joueur concerné si possible
                 PlayerEntity player = ((QolsEnchantSync) handler).getQolsPlayer();
-                Pouyouteqols.LOGGER.info(qolsPlayer.getName().getString());
 
                 if (player instanceof ServerPlayerEntity serverPlayer) {
                     sendPacket(serverPlayer, slot, selectedEnchantments);
@@ -100,7 +99,7 @@ public class EnchantmentScreenHandlerMixin implements QolsEnchantSync{
         }
     }
 
-    @Inject(method = "onButtonClick", at = @At("HEAD"))
+    @Inject(method = "onButtonClick", at = @At("HEAD"), cancellable = true)
     private void injectOnButtonClick(PlayerEntity player, int id, CallbackInfoReturnable<Boolean> cir) {
         List<EnchantmentLevelEntry> list = getQolsServerEnchantments(id);
 
@@ -119,12 +118,12 @@ public class EnchantmentScreenHandlerMixin implements QolsEnchantSync{
             itemStack.addEnchantment(entry.enchantment, entry.level);
         }
 
-        lapisStack.decrement(1);
-        player.addExperienceLevels(-cost);
+        lapisStack.decrement(id+1);
+        player.addExperienceLevels(-id-1);
         handler.getSlot(0).setStack(itemStack);
 
-
         cir.setReturnValue(true);
+
     }
 
     @Unique

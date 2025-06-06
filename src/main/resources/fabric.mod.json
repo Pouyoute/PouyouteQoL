@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"com.pouyoute.qols.PouyouteqolsDataGenerator"
+		],
+		"client": [
+			"com.pouyoute.qols.client.PouyouteqolsClient"
 		]
 	},
 	"mixins": [

@@ -1,4 +1,4 @@
-package com.pouyoute.qols.mixin;
+package com.pouyoute.qols.mixin.mixins;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,7 +20,7 @@ public abstract class LuckEnchantmentMixin {
     @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
     private void injectGetMinPower(int level, CallbackInfoReturnable<Integer> cir)
     {
-        cir.setReturnValue(15 + (level - 1) * 5);
+        cir.setReturnValue(25 + (level - 1) * level);
     }
 
     @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)

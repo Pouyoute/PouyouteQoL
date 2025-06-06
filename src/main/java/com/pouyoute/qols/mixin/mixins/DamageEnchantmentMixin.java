@@ -1,4 +1,4 @@
-package com.pouyoute.qols.mixin;
+package com.pouyoute.qols.mixin.mixins;
 
 import net.minecraft.enchantment.DamageEnchantment;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,8 +17,8 @@ public class DamageEnchantmentMixin {
 
     @Inject(method = "getMinPower", at = @At("HEAD"), cancellable = true)
     private void injectGetMinPower(int level, CallbackInfoReturnable<Integer> cir) {
-        int[] BASE_POWERS = {1, 5, 5};
-        int[] POWERS_PER_LEVEL = {7, 4, 4};
+        int[] BASE_POWERS = {3, 8, 8};
+        int[] POWERS_PER_LEVEL = {10, 8, 8};
         int typeIndex = ((DamageEnchantment)(Object)this).typeIndex;
 
         int minPower = BASE_POWERS[typeIndex] + (level - 1) * POWERS_PER_LEVEL[typeIndex];
@@ -27,9 +27,9 @@ public class DamageEnchantmentMixin {
 
     @Inject(method = "getMaxPower", at = @At("HEAD"), cancellable = true)
     private void injectGetMaxPower(int level, CallbackInfoReturnable<Integer> cir) {
-        int[] BASE_POWERS = {1, 5, 5};
-        int[] POWERS_PER_LEVEL = {11, 8, 8};
-        int[] MIN_MAX_POWER_DIFFERENCES = {20, 20, 20};
+        int[] BASE_POWERS = {3, 8, 8};
+        int[] POWERS_PER_LEVEL = {10, 8, 8};
+        int[] MIN_MAX_POWER_DIFFERENCES = {16, 16, 16};
 
         int typeIndex = ((DamageEnchantment)(Object)this).typeIndex;
 

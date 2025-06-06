@@ -3,13 +3,20 @@
   "package": "com.pouyoute.qols.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "DamageEnchantmentMixin",
-    "EnchantmentScreenHandlerAccessor",
-    "EnchantmentScreenHandlerMixin",
-    "ExampleMixin",
-    "LuckEnchantmentMixin"
+    "accessors.EnchantmentScreenHandlerAccessor",
+    "mixins.DamageEnchantmentMixin",
+    "mixins.EfficiencyEnchantmentMixin",
+    "mixins.EnchantmentScreenHandlerMixin",
+    "mixins.EnchantTableBlockMixin",
+    "mixins.LuckEnchantmentMixin",
+    "mixins.UnbreakingEnchantmentMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "client": [
+    "accessors.ScreenAccessor",
+    "invokers.HandledScreenInvoker",
+    "mixins.EnchantmentScreenMixin"
+  ]
 }

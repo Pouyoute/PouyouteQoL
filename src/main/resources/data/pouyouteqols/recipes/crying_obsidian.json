@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern" : [
+    "LOL",
+    "OCO",
+    "LOL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_block"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "minecraft:popped_chorus_fruit"
+    }
+  },
+  "result": {
+    "item": "minecraft:crying_obsidian",
+    "count": 3
+  }
+}
